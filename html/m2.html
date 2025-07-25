@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAKONGE GENERAL SUPPLY LTD</title>
+    <style>
+        :root {
+            --primary-green: #28a745; /* A professional green */
+            --light-green: #d4edda;
+            --dark-green: #1e7e34;
+            --text-color: #333;
+            --white: #fff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #6c757d;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--light-gray);
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            width: 200px; /* Adjust as needed */
+            height: 200px; /* Adjust as needed */
+            background-color: var(--dark grey);
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 0.9em;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden; /* Ensure logo fits if it's an image */
+        }
+
+        .logo-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--light-green);
+        }
+
+        /* Hero Section (Home Page) */
+        #home {
+            background-color: var(--light-green);
+            color: var(--dark-green);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
+            z-index: 1;
+        }
+
+        #home .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        #home h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--dark-green);
+        }
+
+        #home p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .contact-info {
+            font-size: 1.1em;
+            margin-top: 20px;
+            color: var(--dark-green);
+        }
+
+        .contact-info a {
+            color: var(--dark-green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+            background-color: var(--white);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--light-gray);
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-green);
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-green);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Us */
+        #about p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: justify;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+        }
+
+        .founder-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .founder-picture-placeholder {
+            width: 200px;
+            height: 200px;
+            background-color: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .founder-picture-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .founder-section p {
+            font-style: italic;
+            color: var(--dark-gray);
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        /* Products/Services */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            background-color: var(--white);
+            border: 1px solid var(--light-green);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item p {
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+            color: var(--primary-green);
+        }
+
+        .video-container {
+            grid-column: span 1; /* For individual video span */
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .video-container video {
+            height: 250px; /* Slightly taller for videos */
+        }
+        .video-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Services Section within Products/Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 1px solid var(--primary-green);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background-color: var(--light-green);
+            border-color: var(--dark-green);
+        }
+
+        .service-card h3 {
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .service-card p {
+            font-size: 1em;
+            color: var(--text-color);
+        }
+
+        /* Testimonials */
+        #testimonials .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-green);
+            border-left: 5px solid var(--primary-green);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .testimonial-card .author {
+            font-weight: bold;
+            color: var(--dark-green);
+            text-align: right;
+        }
+
+        /* Location */
+        #location p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 350px;
+            background-color: var(--light-gray);
+            border: 1px solid var(--primary-green);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--dark-gray);
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            #home h1 {
+                font-size: 2.2em;
+            }
+
+            #home p {
+                font-size: 1em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo-placeholder">
+                 <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.42_9273cec4.jpg" alt="MAKONGE GENERAL SUPPLY LTD Logo">
+            </div>
+            <h1>MAKONGE GENERAL SUPPLY LTD</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Nyumbani</a></li>
+                    <li><a href="#about">Kuhusu Sisi</a></li>
+                    <li><a href="#products-services">Bidhaa/Huduma</a></li>
+                    <li><a href="#testimonials">Maoni</a></li>
+                    <li><a href="#location">Mahali</a></li>
+                    <li><a href="#contact">Wasiliana Nasi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="container">
+            <h1>Karibu MAKONGE GENERAL SUPPLY LTD</h1>
+            <p>Sisi ni wauzaji wako wa kuaminika wa vifaa vya ujenzi bora, mbao, nondo, na huduma za miundombinu. Tunahakikisha ubora na ufanisi katika kila mradi.</p>
+            <div class="contact-info">
+                <p>Wasiliana nasi: <a href="tel:+255767364579">+255 767364579</a> / <a href="tel:+255784364579">+255 784364579</a></p>
+                <p>Au barua pepe: <a href="mailto:makongegema@gmail.com">makongegema@gmail.com</a></p>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2>Kuhusu Sisi</h2>
+            <p>Historia ya biashara hii ilianzishwa rasmi tarehe 2 Septemba 2011 na <b>Zakayo Mathias Makonge</b>. Tangu kuanzishwa kwake, MAKONGE GENERAL SUPPLY LTD imejitolea kuwa mtoa huduma katika sekta ya vifaa vya ujenzi nchini Tanzania.</p>
+            <p>Dira yetu ni kuwa chaguo namba moja kwa wateja wetu kwa kutoa bidhaa bora na huduma za uhakika, zenye viwango vya kimataifa, ili kuhakikisha miradi ya ujenzi inafanikiwa na jamii inafaidika na miundombinu imara na salama.</p>
+            <div class="founder-section">
+                <div class="founder-picture-placeholder">
+                    <img src="C:\Users\HP\OneDrive\Desktop\baba makonge.jpg" alt="Picha ya Mwanzilishi Zakayo Mathias Makonge">
+                </div>
+                <p>Mwanzilishi: Zakayo Mathias Makonge</p>
+            </div>
+        </section>
+
+        <section id="products-services" class="container">
+            <h2>Bidhaa na Huduma Zetu</h2>
+
+            <h3>Bidhaa Zetu</h3>
+            <p>Tunajivunia kukupa bidhaa mbalimbali za ubora wa juu zinazohitajika katika miradi yote ya ujenzi. Kutoka misingi hadi umaliziaji, tuna kila unachohitaji.</p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.45_8161f256.jpg" alt="Samani/furniture">
+                    <p>Samani/furniture</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.44_209a05ed.jpg" alt="Mbao">
+                    <p>Mbao</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.47_25d37537.jpg" alt="Viti">
+                    <p>Viti</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.43_bb3b1759.jpg" alt="Mbao">
+                    <p>Mbao</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.45_0081e558.jpg" alt="Kabati">
+                    <p>Kabati</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.jpg"alt="Milango/Viti">
+                    <p>Milango/Viti</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.43_3c3e5d21.jpg" alt="Mbao">
+                    <p>Mbao</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.44_1b2dc0b2.jpg" alt="Vitanda">
+                    <p>Vitanda</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.46_5e9c76fd.jpg" alt="Meza">
+                    <p>Meza</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.47_b1e87bfe.jpg" alt="Milango">
+                    <p>Milango</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\HP\OneDrive\Desktop\WhatsApp Image 2025-07-25 at 19.44.46_a58b248b.jpg" alt="Milango ya kisasa">
+                    <p>Milango ya kisasa</p>
+                </div>
+
+                            </div>
+
+            <h3 style="margin-top: 60px;">Huduma Zetu</h3>
+            <p>Mbali na bidhaa, pia tunatoa huduma mbalimbali kusaidia miradi yako ya ujenzi kufanikiwa.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Ujenzi na Miundombinu</h3>
+                    <p>Tunatoa huduma za ujenzi wa majengo, barabara, madaraja, na miundombinu mingine muhimu.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Usambazaji wa Vifaa</h3>
+                    <p>Usambazaji wa haraka na wa kuaminika wa vifaa vyote vya ujenzi kote nchini.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Ushauri wa Ujenzi</h3>
+                    <p>Wataalamu wetu wapo tayari kukupa ushauri wa kitaalamu juu ya miradi yako.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Uundaji na Ufungaji wa Samani</h3>
+                    <p>Huduma za kitaalamu za uundaji, usafirishaji na ufungaji wa samani bora.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="container">
+            <h2>Maoni ya Wateja Wetu</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"MAKONGE GENERAL SUPPLY LTD wamenisaidia sana kupata vifaa bora kwa wakati. Huduma yao ni ya kuaminika sana!"</p>
+                    <p class="author">- Bw. Juma, Dar es Salaam</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Nilipata huduma kwa haraka na pia mbao zilikuwa za kiwango ."</p>
+                    <p class="author">- Bi. Amina, Mwanza</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Nilinunua samani kutoka kwao, ubora ni wa ajabu na huduma kwa wateja ni nzuri sana."</p>
+                    <p class="author">- Ndugu Peter, Arusha</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="container">
+            <h2>Mahali Tulipo</h2>
+            <p>Ofisi na ghala letu kuu liko:</p>
+            <p><strong>Sabasaba, Ilemela, Mwanza, Tanzania</strong></p>
+            <p><strong>P.O. BOX 2521</strong></p>
+            <div class="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97159.01981657583!2d32.85334368491238!3d-2.5032335041952374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19ce64c6498cfb91%3A0x7529260a7f23a51d!2sMwanza%2C%20Tanzania!5e1!3m2!1sen!2sin!4v1753461431782!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>">
+                
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Wasiliana Nasi</h2>
+            <p>Kwa maswali yoyote, maoni, au kujua zaidi kuhusu bidhaa na huduma zetu, tafadhali wasiliana nasi kupitia namba zifuatazo au barua pepe.</p>
+            <p><strong>Simu:</strong> <a href="tel:+255767364579">+255 767364579</a> / <a href="tel:+255784364579">+255 784364579</a></p>
+            <p><strong>Barua pepe:</strong> <a href="mailto:makongegema@gmail.com">makongegema@gmail.com</a></p>
+            <p style="margin-top: 30px;">Tunapatikana pia kwenye mitandao ya kijamii:</p>
+            <p>
+                <a href="#" style="color: var(--primary-green); text-decoration: none; margin: 0 10px;">Facebook</a>
+                <a href="#" style="color: var(--primary-green); text-decoration: none; margin: 0 10px;">Instagram</a>
+                <a href="#" style="color: var(--primary-green); text-decoration: none; margin: 0 10px;">LinkedIn</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 MAKONGE GENERAL SUPPLY LTD. Haki zote zimehifadhiwa.</p>
+            <p>Imeundwa kwa upendo na ubora.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
